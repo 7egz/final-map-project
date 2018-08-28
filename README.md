@@ -15,7 +15,7 @@ NRW(North Rhine-Westphalia) Map is my last Udacity nano-degree project. In this 
 
 \- download or clone my repo from
 
-https://github.com/7egz/neighborhood-map
+https://github.com/7egz/final-map-project
 
 
 \- run the following in your node.js after getting into the project folder
