@@ -4,9 +4,6 @@ import Inputs from './search.js'
 import {points,getUrl} from './config';
 import './App.css';
 
-
-
-
 class App extends Component {
   
    state = {
@@ -47,24 +44,24 @@ class App extends Component {
       });
 		 
     });
-   
+   console.log(this.state.info);
+
   }
-  
+    
+
   /**handle the error */
    componentDidCatch(){
     this.setState({hasError:true})
   }
 
-
-
   render() {
-    
     return (
       this.state.hasError?<h1>Something went wrong...</h1>:
-        <div>
+        <div id="app">
+        <header tabIndex="0" id="header" style={{lineHeight: "1.5em"}}>Map Project</header>
       <main>
 
-        <nav>
+        <nav id="nav">
           <Inputs handleSearch={evt=>{this.handleSearch(evt)}} />
         </nav>
       
@@ -74,6 +71,7 @@ class App extends Component {
          {this.activeItem}
 
          </main>
+         <footer id="footer" >End of the project</footer>
          
       </div>
     );

@@ -22,6 +22,7 @@ handleMarkerClick(props,marker,e,item){
        		    onClick={(props,marker,e)=>this.handleMarkerClick(props,marker,e,item)} 
        			key={item.lat}
 		       	title={item.title}
+            animation= {this.props.google.maps.Animation.DROP}
 		        position={{lat: item.lat, lng: item.lng }}
 		        />
        )}
@@ -34,8 +35,9 @@ handleMarkerClick(props,marker,e,item){
              <div>
 		 	    {this.props.locationInfo && 
 		 	    	<div>
-		 	    	<h4>{this.props.locationInfo.pointer.title}</h4>
-		 	    	<p>Address: {this.props.locationInfo.pointer.title}</p>
+		 	    	<h4>About the City</h4>
+            <p>Country: {this.props.locationInfo.data.venues[0].location.country}</p>
+		 	    	<p>City: {this.props.locationInfo.data.venues[0].location.city}</p>
 		 	    	<p>Population: {this.props.locationInfo.pointer.Population}</p>
 		 	    	<p>Airport: {this.props.locationInfo.pointer.Airport}</p>
 					</div>
