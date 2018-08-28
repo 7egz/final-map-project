@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import {View } from "react-native";
 import MapContainer from './Map.js';
 import Inputs from './search.js'
 import {points,getUrl} from './config';
@@ -35,9 +34,7 @@ class App extends Component {
    handleSearch = (text) => {
       this.setState({ query: text });
       const result = points.filter(item=> item.title.toLowerCase().indexOf(text.toLowerCase()) > -1);
-      //console.log(result);
       this.setState({points:result});
-      //console.log(this.state.query);
    }
 
     /** fetch all Api data for the marker from 4square*/
@@ -48,9 +45,8 @@ class App extends Component {
       }).then((data)=>{
         this.state.info.push({data:data.response,pointer : {...pointer}});
       });
-		 console.log(this.state.info);
+		 
     });
-   
    
   }
   
