@@ -9,6 +9,7 @@ class App extends Component {
    state = {
       query: '',
       hasError:false,
+      errorInfo:null,
       info:[],
       activeItem : null,
       activeMarker: null,
@@ -53,7 +54,7 @@ handleList= (text) => {
               this.setState({points})
         this.state.info.push({data:data.response,pointer : {...pointer}});
       }).catch((error)=>{
-        console.log('There has been a problem with your fetch operation: ', error.message);
+        this.setState({hasError:true,errorInfo:error});
     });
 
     });
@@ -66,7 +67,11 @@ handleList= (text) => {
 
   render() {
     return (
-      this.state.hasError?<h1>Something went wrong...</h1>:
+      this.state.hasError?
+      <div>
+       <h1>Something went wrong...</h1>
+       <p id="error">{this.state.errorInfo && "There is a problem to load the page please try again"}</p>
+      </div>:
         <div id="app">
         <header tabIndex="0" id="header">
 			   Find Places To Hangout While Visiting Germany

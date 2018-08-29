@@ -5,6 +5,8 @@ html, body, main,#map-section{
 
 // settings for off canvas nav element
 /* start nav style */
+
+
 #nav {
 	width: 300px;
 	height: 100%;
@@ -70,6 +72,12 @@ html, body, main,#map-section{
 
 :focus{ outline: orange solid 2px; 
 	box-shadow: 0 0 8px 3px rgba(158, 157, 177, 0.8)
+}
+
+#error{
+  text-align: center;
+  color:red;
+  font-size: 30px;
 }
 
 @media screen and (max-width: 749px){
