@@ -20,10 +20,10 @@ handleMarkerClick(props,marker,e,item){
       	   >
  		{/**loop on my entery data and add the marker */}
        	{points.map((item)=><Marker
-       		    onClick={(props,marker,e)=>this.handleMarkerClick(props,marker,e,item)} 
+       		 onClick={(props,marker,e)=>this.handleMarkerClick(props,marker,e,item)} 
        			key={item.lat}
-		       	title={item.title}
-            	animation= {this.props.google.maps.Animation.DROP}
+		       	title={item.city}
+            animation= {this.props.google.maps.Animation.DROP}
 		        position={{lat: item.lat, lng: item.lng }}
 		        />
        )}
@@ -31,13 +31,13 @@ handleMarkerClick(props,marker,e,item){
      {/**view info about the city*/}
   		<InfoWindow 
        		marker={this.props.activeMarker}
-			visible={locationInfo ? true : false}
+			   visible={locationInfo ? true : false}
        		>
              <div>
-		 	    {this.props.locationInfo && 
+		 	       {locationInfo && 
 		 	    	<div>
 		 	    	<h4>About the City</h4>
-            		<p>Country: {locationInfo.pointer.country}</p>
+            <p>Country: {locationInfo.pointer.country}</p>
 		 	    	<p>City: {locationInfo.pointer.city}</p>
 		 	    	<p>Population: {locationInfo.pointer.Population}</p>
 		 	    	<p>Airport: {locationInfo.pointer.Airport}</p>

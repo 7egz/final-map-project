@@ -25,7 +25,16 @@ class App extends Component {
       }
     });
    }
-
+    /**hold the click on list items event and apply filter and popout to some info */
+handleList= (text) => {
+  const el =window.document.querySelector(`[title=${text.city}]`);
+  if (el) {
+  el.click();
+  }
+      this.setState({ query: text.city });
+      const result = points.filter(item=> item.city.toLowerCase().indexOf(text.city.toLowerCase()) > -1);
+      this.setState({points:result});
+   }
     /**hold the search filter according to the user input */
    handleSearch = (text) => {
       this.setState({ query: text });
@@ -43,7 +52,9 @@ class App extends Component {
               pointer.city=data.response.venues[0].location.city;
               this.setState({points})
         this.state.info.push({data:data.response,pointer : {...pointer}});
-      });
+      }).catch((error)=>{
+        console.log('There has been a problem with your fetch operation: ', error.message);
+    });
 
     });
   }
@@ -58,14 +69,14 @@ class App extends Component {
       this.state.hasError?<h1>Something went wrong...</h1>:
         <div id="app">
         <header tabIndex="0" id="header">
-			Find Places To Hangout While Visiting Germany
-		</header>
+			   Find Places To Hangout While Visiting Germany
+		    </header>
       <main>
           <section id='map'>
               <MapContainer  points={this.state.points} activeMarker={this.state.activeMarker} locationInfo={this.state.activeItem} handleMarkerClick={(props,marker,e,item)=>this.handleMarkerClick(props,marker,e,item)} />
           </section>
         <nav id="nav">
-          <Inputs handleSearch={evt=>{this.handleSearch(evt)}} query={this.state.query} result={this.state.points}/>
+          <Inputs handleSearch={evt=>{this.handleSearch(evt)}} handleList={evt=>{this.handleList(evt)}} query={this.state.query} result={this.state.points}/>
         </nav>
       </main>
          <footer id="footer" >Copyrights reserved 2018@ Mahmoud Hassan</footer>
