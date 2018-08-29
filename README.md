@@ -15,7 +15,10 @@ NRW(North Rhine-Westphalia) and some cities in Germany Map is my last Udacity na
 
 \- download or clone my repo from
 
+
 https://github.com/7egz/final-map-project
+
+>>>>>>> 64faa51fad9d4a5dcb2c9cc8e4a1bf7d4550502b
 
 \- run the following in your node.js after getting into the project folder
 
