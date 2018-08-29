@@ -5,7 +5,7 @@
 ### About the project:
 
 
-NRW(North Rhine-Westphalia) Map is my last Udacity nano-degree project. In this project I show the user some of most beautiful Cities to visit in NRW. This project was built with React, Google Maps API and FourSquare API.
+NRW(North Rhine-Westphalia) and some cities in Germany Map is my last Udacity nano-degree project. In this project I show the user some of most beautiful Cities to visit in NRW. This project was built with React, Google Maps API and FourSquare API.
 
  
 
@@ -15,13 +15,11 @@ NRW(North Rhine-Westphalia) Map is my last Udacity nano-degree project. In this 
 
 \- download or clone my repo from
 
-https://github.com/7egz/neighborhood-map
-
+https://github.com/7egz/final-map-project
 
 \- run the following in your node.js after getting into the project folder
 
  `npm install`
-`npm install --save react-google-maps`
   `npm start`
 
 

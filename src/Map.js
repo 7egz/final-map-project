@@ -7,6 +7,7 @@ handleMarkerClick(props,marker,e,item){
 	this.props.handleMarkerClick(props,marker,e,item)
 }
   render() {
+	const  {locationInfo,points} = this.props;
 
     return (
     	/**run the map on certain lat and lng*/
@@ -15,14 +16,14 @@ handleMarkerClick(props,marker,e,item){
             lat: 51.221720,
             lng: 6.776160
           }}
-      	   zoom={9}
+      	   zoom={8}
       	   >
  		{/**loop on my entery data and add the marker */}
-       	{this.props.points.map((item)=><Marker  
+       	{points.map((item)=><Marker
        		    onClick={(props,marker,e)=>this.handleMarkerClick(props,marker,e,item)} 
        			key={item.lat}
 		       	title={item.title}
-            animation= {this.props.google.maps.Animation.DROP}
+            	animation= {this.props.google.maps.Animation.DROP}
 		        position={{lat: item.lat, lng: item.lng }}
 		        />
        )}
@@ -30,16 +31,16 @@ handleMarkerClick(props,marker,e,item){
      {/**view info about the city*/}
   		<InfoWindow 
        		marker={this.props.activeMarker}
-			visible={this.props.locationInfo ? true : false}
+			visible={locationInfo ? true : false}
        		>
              <div>
 		 	    {this.props.locationInfo && 
 		 	    	<div>
 		 	    	<h4>About the City</h4>
-            <p>Country: {this.props.locationInfo.data.venues[0].location.country}</p>
-		 	    	<p>City: {this.props.locationInfo.data.venues[0].location.city}</p>
-		 	    	<p>Population: {this.props.locationInfo.pointer.Population}</p>
-		 	    	<p>Airport: {this.props.locationInfo.pointer.Airport}</p>
+            		<p>Country: {locationInfo.pointer.country}</p>
+		 	    	<p>City: {locationInfo.pointer.city}</p>
+		 	    	<p>Population: {locationInfo.pointer.Population}</p>
+		 	    	<p>Airport: {locationInfo.pointer.Airport}</p>
 					</div>
 		 	    }
 
